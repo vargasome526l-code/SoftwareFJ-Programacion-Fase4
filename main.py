@@ -32,6 +32,7 @@ print(" SISTEMA INTEGRAL DE GESTION - SOFTWARE FJ")
 print("=" * 55)
 
 
+
 def ejecutar_operacion(numero, descripcion, funcion):
     """Ejecuta una operacion controlando los posibles errores."""
 
@@ -39,8 +40,6 @@ def ejecutar_operacion(numero, descripcion, funcion):
 
     try:
         resultado = funcion()
-        print(f"[OK] {resultado}")
-        logger.info("Operacion %s exitosa: %s", numero, descripcion)
 
     except Exception as error:
         print(f"[ERROR CONTROLADO] {error}")
@@ -50,6 +49,14 @@ def ejecutar_operacion(numero, descripcion, funcion):
             descripcion,
             error
         )
+
+    else:
+        print(f"[OK] {resultado}")
+        logger.info("Operacion %s exitosa: %s", numero, descripcion)
+
+    finally:
+        print(f"Operacion {numero} finalizada.")
+
 
 
 # --------------------------------------------------
